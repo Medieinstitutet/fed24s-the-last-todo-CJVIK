@@ -38,7 +38,7 @@ export const ToDoApp = () => {
 
     return (
         <>
-            <AddToDoForm />
+            <AddToDoForm addToDo={addToDo} />
         </>
     )
 }
