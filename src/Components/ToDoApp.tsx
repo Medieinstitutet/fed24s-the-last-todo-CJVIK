@@ -146,7 +146,7 @@ export const ToDoApp = () => {
         <>
             <AddToDoForm addToDo={addToDo} />
             <ToDoSort sortByPriority={sortByPriority} currentSortDirection={sortDirection} />
-            <section className="todo-lists-container">
+            <section className="todo-lists-container flex gap-6 w-full">
                 <ToDoList todos={getSortedTodos()} removeToDo={removeToDo} markAsDone={markAsDone} />
                 <ToDoDoneList doneTodos={DoneToDoList} removeDoneToDo={removeDoneToDo} unMarkAsDone={unMarkAsDone} />
             </section>

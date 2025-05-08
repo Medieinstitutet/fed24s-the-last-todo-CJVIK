@@ -28,25 +28,29 @@ export const ToDoItem = ({ todo, removeToDo, markAsDone, removeDoneToDo, unMarkA
     };
 
     return (
-        <div className="todo-item">
-            <div className="todo-item-content">
+        <div className="todo-item border border-gray-500 rounded-lg shadow-sm bg-gray-800/70 mb-2">
+            <div className="todo-item-content flex flex-col gap-2 p-4">
                 <section className="todo-item-Priority">
-                    <p>Priority: {todo.priority === 1 ? "Low" : todo.priority === 2 ? "Medium" : todo.priority === 3 ? "High" : "Unknown Prio"}</p>
+                    <p className="text-sm text-gray-300">Priority: <span className={
+                        todo.priority === 1 ? "text-green-400" :
+                            todo.priority === 2 ? "text-yellow-400" :
+                                todo.priority === 3 ? "text-red-400" : "text-gray-400"}> {todo.priority === 1 ? "Low" : todo.priority === 2 ? "Medium" : todo.priority === 3 ? "High" : "Unknown Prio"}</span></p>
                 </section>
-                <section className="todo-item-Title">
-                    <h2>{todo.title}</h2>
+                <section className="todo-item-Title mb-1">
+                    <h2 className="text-lg font-semibold">{todo.title}</h2>
                 </section>
-                <section className="todo-item-Description">
-                    <p>{todo.description}</p>
+                <section className="todo-item-Description mb-2">
+                    <p className="text-gray-200">{todo.description}</p>
                 </section>
-                <div className="todo-item-Buttons">
+                <div className="todo-item-Buttons flex gap-2 mt-2">
                     <button
                         onClick={handleStatusChange}
-                        className={completed ? "undo-btn" : "complete-btn"}
+                        className={completed ? "undo-btn px-3 py-1 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-semibold shadow transition"
+                            : "complete-btn complete-btn px-3 py-1 rounded bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition"}
                     >
                         {completed ? "Undo" : "Mark as Done"}
                     </button>
-                    <button onClick={handleRemove} className="remove-btn">Remove</button>
+                    <button onClick={handleRemove} className="remove-btn px-3 py-1 rounded bg-red-600 hover:bg-red-700 text-white font-semibold shadow transition">Remove</button>
                 </div>
             </div>
         </div>

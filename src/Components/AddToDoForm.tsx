@@ -45,12 +45,12 @@ export const AddToDoForm = ({ addToDo }: AddToDoFormProps) => {
 
     return (
         <>
-            <section className="add-todo-form-container">
-                <h2>Add your TODO</h2>
+            <section className="add-todo-form-container flex flex-col gap-4 min-h-[vh] border border-gray-300 rounded-lg shadow-md bg-gray-800/60 p-4 mb-6">
+                <h2 className="text-lg font-semibold mb-2">Add your TODO</h2>
                 <form onSubmit={handleSubmit} className="add-todo-form">
 
-                    <div className="form-group">
-                        <label htmlFor="title">Title:</label>
+                    <div className="form-group flex flex-col items-start gap-1">
+                        <label htmlFor="title" className="font-medium">Title:</label>
                         <input
                             type="text"
                             id="title"
@@ -59,33 +59,38 @@ export const AddToDoForm = ({ addToDo }: AddToDoFormProps) => {
                             onChange={handleChange}
                             placeholder="What needs to be done?"
                             required
+                            className="w-full rounded border border-gray-400 px-2 py-1 bg-gray-900/80 text-white"
                         />
 
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Description:</label>
+                    <div className="form-group flex flex-col items-start gap-1">
+                        <label htmlFor="description" className="font-medium">Description:</label>
                         <textarea
                             id="description"
                             name="description"
                             value={newToDo.description}
                             onChange={handleChange}
                             placeholder="Add details..."
+                            className="w-full rounded border border-gray-400 px-2 py-1 bg-gray-900/80 text-white resize-none"
+
                         />
 
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="priority">Priority:</label>
+                    <div className="form-group flex flex-col items-start gap-1">
+                        <label htmlFor="priority" className="font-medium">Priority:</label>
                         <select
                             id="priority"
                             name="priority"
                             value={newToDo.priority}
-                            onChange={handleChange}>
+                            onChange={handleChange}
+                            className="rounded border border-gray-400 px-2 py-1 bg-gray-900/80 text-white">
+
                             <option value="1">Low</option>
                             <option value="2">Medium</option>
                             <option value="3">High</option>
                         </select>
                     </div>
-                    <button type="submit" className="add-btn">Add ToDo!</button>
+                    <button type="submit" className="add-btn mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded px-4 py-2 shadow">Add ToDo!</button>
                 </form>
             </section>
         </>
