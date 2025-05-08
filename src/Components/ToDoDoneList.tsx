@@ -1,13 +1,30 @@
+import { ToDo } from "../models/ToDo";
+import { ToDoItem } from "./ToDoItem";
 
+type ToDoDoneListProps = {
+    doneTodos: ToDo[];
+    removeDoneToDo: (id: number) => void;
+    unMarkAsDone: (id: number) => void;
+}
 
-export const ToDoDoneList = () => {
-
+export const ToDoDoneList = ({ doneTodos, removeDoneToDo, unMarkAsDone }: ToDoDoneListProps) => {
     return (
         <div className="todo-done-list">
-            <h2>Done</h2>
+            <h2>Done!</h2>
             <div className="todo-done-list-container">
-                {/* TODO DONE LIST  */}
-
+                {doneTodos.length === 0 ? (
+                    <p>No done todos yet, add one above!</p>
+                ) : (
+                    doneTodos.map((todo) => (
+                        <ToDoItem
+                            key={todo.id}
+                            todo={todo}
+                            removeDoneToDo={removeDoneToDo}
+                            unMarkAsDone={unMarkAsDone}
+                            completed={true}
+                        />
+                    ))
+                )}
             </div>
         </div>
     )

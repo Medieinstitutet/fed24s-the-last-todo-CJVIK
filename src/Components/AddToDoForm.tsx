@@ -27,10 +27,18 @@ export const AddToDoForm = ({ addToDo }: AddToDoFormProps) => {
             alert("Please enter a title for your TODO.");
             return;
         }
-        addToDo(newToDo);
-        setNewToDo({ ...defaultToDo });
-        console.log(newToDo);
 
+
+        const todoToAdd = new ToDo(
+            newToDo.priority,
+            newToDo.title,
+            newToDo.description,
+            newToDo.completed
+        );
+
+        addToDo(todoToAdd);
+
+        setNewToDo({ ...defaultToDo });
     }
 
 
